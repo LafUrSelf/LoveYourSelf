@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Люби Себя — маникюр-салон</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav-wrap">
+    <div class="logo"><span class="mark"></span>Люби Себя</div>
+    <nav class="main-links">
+      <a href="#catalog">Услуги</a>
+      <a href="#loyalty">Программа лояльности</a>
+      <a href="#about">О салоне</a>
+      <a href="#footer">Контакты</a>
+    </nav>
+    <div class="auth-area" id="authArea"></div>
+    <button class="hamburger" onclick="document.querySelector('nav.main-links').classList.toggle('show')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="drops">
+      <span class="drop c1" style="animation-delay:.05s"></span>
+      <span class="drop c2" style="animation-delay:.15s"></span>
+      <span class="drop c3" style="animation-delay:.25s"></span>
+      <span class="drop c4" style="animation-delay:.35s"></span>
+    </div>
+    <h1><span data-cid="hero_l1" data-group="Главный экран" data-label="Заголовок, строка 1">Красивые руки —</span><br>это <em data-cid="hero_em" data-group="Главный экран" data-label="Заголовок, курсив">забота о себе,</em><br><span data-cid="hero_l2" data-group="Главный экран" data-label="Заголовок, строка 2">а не роскошь.</span></h1>
+    <p data-cid="hero_text" data-group="Главный экран" data-label="Подзаголовок">Маникюр-салон «Люби Себя»: аккуратная работа, стерильные инструменты и атмосфера, в которой хочется выдохнуть. Записывайтесь онлайн и копите бонусы с каждой покупки.</p>
+    <div class="cta-row">
+      <a href="#catalog" class="btn beige" data-cid="hero_cta1" data-group="Главный экран" data-label="Кнопка 1">Смотреть услуги</a>
+      <a href="#loyalty" class="btn ghost-light" data-cid="hero_cta2" data-group="Главный экран" data-label="Кнопка 2">Как работают бонусы</a>
+    </div>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" data-cid="catalog_eyebrow" data-group="Каталог" data-label="Надпись над заголовком">Каталог</p>
+        <h2 data-cid="catalog_heading" data-group="Каталог" data-label="Заголовок раздела">Наши услуги</h2>
+      </div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="loyalty" id="loyalty">
+  <div class="container wrap">
+    <div>
+      <p class="eyebrow" data-cid="loyalty_eyebrow" data-group="Программа лояльности" data-label="Надпись над заголовком">Виртуальная карта</p>
+      <h2 style="margin:0 0 8px;font-size:clamp(26px,3vw,36px);" data-cid="loyalty_heading" data-group="Программа лояльности" data-label="Заголовок раздела">Копите 10% бонусами с каждой покупки</h2>
+      <ul>
+        <li><span class="num">1</span><span data-cid="loyalty_li1" data-group="Программа лояльности" data-label="Шаг 1">Регистрируетесь на сайте — карта создаётся автоматически, без пластика и очередей.</span></li>
+        <li><span class="num">2</span><span data-cid="loyalty_li2" data-group="Программа лояльности" data-label="Шаг 2">Оплачиваете услугу онлайн — 10% от суммы сразу начисляется бонусами на карту.</span></li>
+        <li><span class="num">3</span><span data-cid="loyalty_li3" data-group="Программа лояльности" data-label="Шаг 3">Бонусами можно оплатить до 50% стоимости следующей записи прямо при покупке.</span></li>
+      </ul>
+      <button class="btn primary" onclick="openAuth('register')" data-cid="loyalty_cta" data-group="Программа лояльности" data-label="Текст кнопки">Зарегистрироваться и получить карту</button>
+    </div>
+    <div class="loyalty-card">
+      <div class="top-row">
+        <div>
+          <div class="lc-label">Люби Себя</div>
+          <div class="lc-name" id="lcName">Гостевая карта</div>
+        </div>
+        <div class="drops"><span class="drop c3"></span><span class="drop c4"></span></div>
+      </div>
+      <div>
+        <div class="lc-label">Бонусный баланс</div>
+        <div class="lc-balance"><span id="lcBalance">0</span> ₽</div>
+        <div class="lc-number" id="lcNumber">•••• •••• •••• ••••</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container wrap">
+    <div class="panel">
+      <p class="eyebrow" style="color:var(--beige)" data-cid="about_panel_eyebrow" data-group="О салоне" data-label="Надпись над заголовком (тёмный блок)">О салоне</p>
+      <h3 data-cid="about_panel_title" data-group="О салоне" data-label="Заголовок тёмного блока">Люби Себя</h3>
+      <p data-cid="about_panel_text" data-group="О салоне" data-label="Текст тёмного блока">Мы верим, что уход за собой — это ежедневная привычка, а не событие раз в месяц. Внимательные мастера и честные цены — без навязанных услуг.</p>
+    </div>
+    <div>
+      <p class="eyebrow" data-cid="about_eyebrow" data-group="О салоне" data-label="Надпись над заголовком">Почему выбирают нас</p>
+      <h2 style="margin:0 0 14px;" data-cid="about_heading" data-group="О салоне" data-label="Заголовок раздела">Тише, чище, внимательнее</h2>
+      <p data-cid="about_text" data-group="О салоне" data-label="Основной текст">Работаем только с одноразовыми и стерилизованными инструментами, используем щадящие составы и подбираем уход под тип ногтевой пластины и кожи. Каждый мастер — с профильным образованием и стажем от 3 лет.</p>
+      <div class="stats">
+        <div class="stat"><b data-cid="stat1_num" data-group="О салоне" data-label="Показатель 1 — число">7&nbsp;лет</b><span data-cid="stat1_label" data-group="О салоне" data-label="Показатель 1 — подпись">на рынке услуг красоты</span></div>
+        <div class="stat"><b data-cid="stat2_num" data-group="О салоне" data-label="Показатель 2 — число">4.9</b><span data-cid="stat2_label" data-group="О салоне" data-label="Показатель 2 — подпись">средняя оценка клиентов</span></div>
+        <div class="stat"><b data-cid="stat3_num" data-group="О салоне" data-label="Показатель 3 — число">12k+</b><span data-cid="stat3_label" data-group="О салоне" data-label="Показатель 3 — подпись">довольных записей</span></div>
+        <div class="stat"><b data-cid="stat4_num" data-group="О салоне" data-label="Показатель 4 — число">10%</b><span data-cid="stat4_label" data-group="О салоне" data-label="Показатель 4 — подпись">бонусами с каждой покупки</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="foot-wrap">
+      <div>
+        <div class="logo" style="margin-bottom:14px;"><span class="mark"></span>Люби Себя</div>
+        <p style="max-width:280px;" data-cid="footer_about" data-group="Футер" data-label="Текст о салоне">Маникюр-салон в самом центре города. Записывайтесь онлайн, копите бонусы, любите себя — это не эгоизм.</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <p><span data-cid="footer_address" data-group="Футер" data-label="Адрес">г. Белгород, ул. Губкина, 41</span><br><span data-cid="footer_hours" data-group="Футер" data-label="Часы работы">Ежедневно 10:00–21:00</span><br><span data-cid="footer_phone" data-group="Футер" data-label="Телефон">+7 (900) 000-00-00</span></p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <p><a href="#catalog">Услуги</a><br><a href="#loyalty">Лояльность</a><br><a href="#about">О салоне</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div><span data-cid="footer_copyright" data-group="Футер" data-label="Копирайт">© 2026 «Люби Себя». Все права защищены.</span> &nbsp;·&nbsp; <span class="admin-link" onclick="openAuth('login')">Вход для персонала</span></div>
+      <div class="social-row">
+        <a class="vk-badge" href="https://vk.ru/club241118997" target="_blank" rel="noopener" aria-label="Мы во ВКонтакте" title="Мы во ВКонтакте">
+          <svg viewBox="0 0 24 24"><path fill="#faf6f0" d="M13.16 17.5c-6.24 0-9.8-4.28-9.95-11.4h3.1c.1 5.24 2.42 7.46 4.26 7.92V6.1h2.92v4.51c1.81-.2 3.71-2.26 4.35-4.51h2.92c-.49 2.77-2.55 4.83-4.01 5.68 1.46.7 3.8 2.49 4.68 5.72h-3.22c-.68-2.14-2.42-3.8-4.72-4.03v4.03h-.33z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<!-- ===== AUTH MODAL ===== -->
+<div class="overlay" id="authOverlay">
+  <div class="modal">
+    <button class="close" onclick="closeModal('authOverlay')">&times;</button>
+    <div id="authLoginForm">
+      <h3>С возвращением</h3>
+      <p class="hint">Войдите, чтобы видеть бонусный баланс и историю записей.</p>
+      <div class="form-err" id="loginErr"></div>
+      <div class="field"><label>Логин</label><input id="loginUser" placeholder="Ваш логин"></div>
+      <div class="field"><label>Пароль</label><input id="loginPass" type="password" placeholder="Пароль"></div>
+      <button class="btn primary" style="width:100%;padding:13px;" onclick="doLogin()">Войти</button>
+      <div class="switch-line">Ещё нет карты? <a onclick="openAuth('register')">Зарегистрироваться</a></div>
+    </div>
+    <div id="authRegisterForm" style="display:none;">
+      <h3>Создать карту лояльности</h3>
+      <p class="hint">Регистрация бесплатна. Карта появится в личном кабинете сразу.</p>
+      <div class="form-err" id="regErr"></div>
+      <div class="field"><label>Имя</label><input id="regName" placeholder="Как вас называть"></div>
+      <div class="field"><label>Логин</label><input id="regUser" placeholder="Придумайте логин"></div>
+      <div class="field"><label>Пароль</label><input id="regPass" type="password" placeholder="Придумайте пароль"></div>
+      <button class="btn primary" style="width:100%;padding:13px;" onclick="doRegister()">Зарегистрироваться</button>
+      <div class="switch-line">Уже есть карта? <a onclick="openAuth('login')">Войти</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRODUCT DETAIL / PURCHASE MODAL ===== -->
+<div class="overlay" id="detailOverlay">
+  <div class="modal">
+    <button class="close" onclick="closeModal('detailOverlay')">&times;</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<!-- ===== ACCOUNT MODAL ===== -->
+<div class="overlay" id="accountOverlay">
+  <div class="modal wide">
+    <button class="close" onclick="closeModal('accountOverlay')">&times;</button>
+    <div id="accountContent"></div>
+  </div>
+</div>
+
+<!-- ===== ADMIN MODAL ===== -->
+<div class="overlay" id="adminOverlay">
+  <div class="modal wide">
+    <button class="close" onclick="closeModal('adminOverlay')">&times;</button>
+    <h3>Админ-панель</h3>
+    <p class="hint">Управление каталогом, мастерами, базой клиентов и текстами сайта. Доступные вкладки зависят от вашего уровня доступа. Записи клиентов — на отдельной странице «Записи клиентов».</p>
+    <div class="filters">
+      <button class="filter-pill active" id="adminTabBtn-products" onclick="switchAdminTab('products')">Услуги</button>
+      <button class="filter-pill" id="adminTabBtn-masters" onclick="switchAdminTab('masters')">Мастера</button>
+      <button class="filter-pill" id="adminTabBtn-customers" onclick="switchAdminTab('customers')">Клиенты</button>
+      <button class="filter-pill" id="adminTabBtn-content" onclick="switchAdminTab('content')">Тексты сайта</button>
+    </div>
+
+    <div id="adminTab-products" style="margin-top:20px;">
+      <div class="admin-toolbar">
+        <span style="font-size:13px;color:#8a8073;" id="adminCount"></span>
+        <button class="btn primary small" onclick="openProductForm()">+ Добавить услугу</button>
+      </div>
+      <div class="admin-list" id="adminList"></div>
+    </div>
+
+    <div id="adminTab-masters" style="margin-top:20px;display:none;">
+      <p class="hint">Мастера, из которых клиент выбирает при записи на услугу.</p>
+      <div class="field-row" style="align-items:end;">
+        <div class="field" style="margin-bottom:0;"><label>Имя мастера</label><input id="newMasterName" placeholder="Например, Анна"></div>
+        <button class="btn primary small" style="height:44px;" onclick="addMaster()">Добавить</button>
+      </div>
+      <div class="admin-list" id="mastersList" style="margin-top:16px;"></div>
+    </div>
+
+    <div id="adminTab-customers" style="margin-top:20px;display:none;">
+      <p class="hint">У каждого клиента — уникальный номер карты лояльности. Здесь же настраивается уровень доступа: Клиент (по умолчанию), Менеджер или Администратор.</p>
+      <div class="admin-toolbar">
+        <span style="font-size:13px;color:#8a8073;" id="customersCount"></span>
+        <button class="btn ghost small" onclick="renderCustomersList()">Обновить список</button>
+      </div>
+      <div class="field" style="margin-bottom:14px;">
+        <input id="customerSearch" placeholder="Найти по имени, логину или номеру карты" oninput="renderCustomersFiltered()">
+      </div>
+      <div class="admin-list" id="customersList"></div>
+    </div>
+
+    <div id="adminTab-content" style="margin-top:20px;display:none;">
+      <p class="hint">Правьте любой текст на сайте — изменения появятся на странице сразу после сохранения.</p>
+      <div id="contentFormFields"></div>
+      <button class="btn primary" style="width:100%;padding:13px;margin-top:6px;" onclick="saveContentForm()">Сохранить тексты сайта</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BOOKINGS ADMIN PAGE (moderation) ===== -->
+<div class="overlay" id="bookingsOverlay">
+  <div class="modal wide">
+    <button class="close" onclick="closeModal('bookingsOverlay')">&times;</button>
+    <h3>Записи клиентов</h3>
+    <p class="hint">Модерация записей на услуги: подтверждение, отмена, отметка о выполнении.</p>
+    <div class="filters" id="bookingFilters"></div>
+    <div class="admin-list" id="bookingsList" style="max-height:56vh;"></div>
+  </div>
+</div>
+
+<!-- ===== PRODUCT FORM MODAL (admin) ===== -->
+<div class="overlay" id="productFormOverlay">
+  <div class="modal">
+    <button class="close" onclick="closeModal('productFormOverlay')">&times;</button>
+    <h3 id="pfTitle">Новая услуга</h3>
+    <p class="hint">Заполните карточку — она сразу появится в каталоге.</p>
+    <div class="img-preview" id="pfPreview">Фото не выбрано</div>
+    <div class="field">
+      <label>Фото (загрузить файл)</label>
+      <input type="file" id="pfFile" accept="image/*" onchange="handlePfFile(event)">
+    </div>
+    <div class="field">
+      <label>или ссылка на изображение</label>
+      <input id="pfImageUrl" placeholder="https://..." oninput="pfPreviewUrl()">
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Название</label><input id="pfName" placeholder="Например, Классический маникюр"></div>
+      <div class="field"><label>Цена, ₽</label><input id="pfPrice" type="number" min="0" placeholder="1500"></div>
+    </div>
+    <div class="field">
+      <label>Категория</label>
+      <select id="pfCategory">
+        <option>Маникюр</option>
+        <option>Педикюр</option>
+        <option>Наращивание</option>
+        <option>Уход</option>
+        <option>Дизайн</option>
+      </select>
+    </div>
+    <div class="field"><label>Описание</label><textarea id="pfDesc" placeholder="Что входит в услугу, сколько длится сеанс..."></textarea></div>
+    <div class="form-err" id="pfErr"></div>
+    <button class="btn primary" style="width:100%;padding:13px;" onclick="saveProductForm()">Сохранить услугу</button>
+  </div>
+</div>
+
+<script src="js/storage-shim.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
